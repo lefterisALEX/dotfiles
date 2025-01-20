@@ -1,0 +1,208 @@
+## FIRST LINE/ROW: Info & Status
+# First param ─┌
+[directory]
+style = "purple"
+truncation_length = 0
+truncate_to_repo = true
+truncation_symbol = "repo: "
+
+[kubernetes]
+symbol = "⛵ "
+style = "dimmed green"
+disabled = false
+# detect_files = ['.yaml']
+
+[[kubernetes.contexts]]
+context_pattern = "tcloud-dev1"
+style = "yellow bold"
+context_alias = "tloud-dev1"
+[[kubernetes.contexts]]
+context_pattern = "tcloud-de-dev1"
+style = "yellow bold"
+context_alias = "tloud-de-dev1"
+[[kubernetes.contexts]]
+context_pattern = "tcloud-itv-dev1"
+style = "yellow bold"
+context_alias = "tloud-itv-dev1"
+[[kubernetes.contexts]]
+context_pattern = "tcloud-acc1"
+style = "blue bold"
+context_alias = "tloud-acc1"
+[[kubernetes.contexts]]
+context_pattern = "tcloud-de-acc1"
+style = "blue bold"
+context_alias = "tloud-de-acc1"
+[[kubernetes.contexts]]
+context_pattern = "tcloud-itv-acc1"
+style = "blue bold"
+symbol = "🛑 "
+context_alias = "tloud-itv-acc1"
+
+[[kubernetes.contexts]]
+context_pattern = ".*575484182474.*"
+style = "green"
+symbol = "✅ "
+context_alias = "local-cluster"
+
+# Before all the version info (python, nodejs, php, etc.)
+[git_status]
+style = "white"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+deleted = "x"
+
+# Last param in the first line/row
+[cmd_duration]
+min_time = 1
+format = "took [$duration]($style)"
+disabled = true
+
+
+## SECOND LINE/ROW: Prompt
+# Somethere at the beginning
+[battery]
+disabled = true
+
+[os]
+disabled = true
+
+[hostname]
+ssh_only = false
+disabled = true
+format = "on [$hostname](bold yellow) "
+
+# Shows the username
+[username]
+style_user = "white"
+style_root = "white"
+format = "[$user]($style) "
+show_always = false
+disabled = true
+
+# Prompt: optional param 1
+[time]
+format = " 🕙 $time($style)\n"
+time_format = "%T"
+style = "bright-white"
+disabled = true
+
+# Prompt: param 2 └─
+[character]
+success_symbol = " [╰─λ](bold red)"
+error_symbol = " [×](bold red)"
+
+# SYMBOLS
+[status]
+symbol = "🔴"
+format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
+map_symbol = true
+disabled = false
+
+[aws]
+symbol = "  "
+format = 'on [$symbol($profile)]($style)'
+style = 'green'
+[aws.region_aliases]
+# eu-west-1 = 'irl'
+[aws.profile_aliases]
+kpn-nonprod-infrastructure-testing = 'infra-test'
+
+
+[conda]
+symbol = " "
+disabled = true
+
+[dart]
+symbol = " "
+
+#[directory]
+#read_only = " "
+
+[docker_context]
+symbol = " "
+format = "via [$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[haskell]
+symbol = "λ "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+#pyenv_version_name = true
+format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
+style = "bold yellow"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${raw}"
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+
+
+[nodejs]
+format = "via [ Node.js $version](bold green) "
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+disabled = true
+
+[terraform]
+format = '[🏎💨 $workspace]($style) '
+disabled = true
+
