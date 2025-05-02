@@ -1,0 +1,3 @@
+function tcloud.list.namespaced.resources
+ kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 -I {} kubectl get -n $argv {} --no-headers -o custom-columns="RESOURCE:metadata.name,KIND:.kind"
+end

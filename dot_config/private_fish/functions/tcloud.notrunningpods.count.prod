@@ -1,0 +1,6 @@
+function tcloud.notrunningpods.count.prod
+ kubie exec tcloud-prd1 kube-system kubectl get pods -A -owide |grep -v Running |grep -v Completed |wc -l
+ kubie exec tcloud-de-prd1 kube-system kubectl get pods -A -owide |grep -v Running |grep -v Completed |wc -l
+ kubie exec tcloud-itv-prd1 kube-system kubectl get pods -A -owide |grep -v Running |grep -v Completed |wc -l
+ kubie exec tcloud-tools-prd kube-system kubectl get pods -A -owide |grep -v Running |grep -v Completed | wc -l
+end
