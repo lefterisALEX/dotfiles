@@ -1,4 +1,12 @@
 # In ~/.local/share/chezmoi/.chezmoiignore
+
+# Ignore Karabiner config unless on macOS
 {{ if ne .chezmoi.os "darwin" }}
 .config/karabiner
 {{ end }}
+
+# Ignore Gedit config unless on Linux
+{{ if ne .chezmoi.os "linux" }}
+.config/gedit
+{{ end }}
+
