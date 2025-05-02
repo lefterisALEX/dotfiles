@@ -1,0 +1,4 @@
+# In ~/.local/share/chezmoi/.chezmoiignore
+{{ if ne .chezmoi.os "darwin" }}
+.config/karabiner
+{{ end }}
