@@ -1,4 +1,7 @@
 packages:
+  apt:
+    - build-essential
+    - curl
   darwin:
     brews:
     - 'git'
