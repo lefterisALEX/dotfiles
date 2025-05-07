@@ -177,6 +177,7 @@ status is-interactive; and begin
     end
 
     # /nix/store/81cqmrlp1x77139nsx0s5jjqk6jxxxxw-direnv-2.34.0/bin/direnv hook fish | source
+    direnv hook fish | source
 
 
 end
