@@ -7,5 +7,6 @@ packages:
     - 'git'
     casks:
     - 'vscodium'
+    - 'vivaldi'
 
 

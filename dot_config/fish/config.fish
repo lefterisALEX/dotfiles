@@ -16,7 +16,7 @@ set -g theme_nerd_fonts yes
 set -g theme_newline_cursor yes
 set -g direnv_fish_mode disable_arrow
 set -Ux EDITOR nvim
-set -gx PATH /Users/lefteris/.nix-profile/bin $PATH
+set -gx PATH /opt/homebrew/bin /Users/lefteris/.nix-profile/bin $PATH
 # Felix' Fish Configuration Init File.
 
 # Fix a problem with paging on nixos, will be resolved once fish version is
