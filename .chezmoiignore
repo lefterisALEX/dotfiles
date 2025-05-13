@@ -7,6 +7,7 @@
 
 # Ignore Gedit config unless on Linux
 {{ if ne .chezmoi.os "linux" }}
+.config/i3
 .config/gedit
 {{ end }}
 
