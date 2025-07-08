@@ -72,6 +72,14 @@ function k.ssm
     aws ssm start-session --target $(k.instanceid $argv)
 end
 
+function k.drain
+    kubectl drain $argv --ignore-daemonsets --delete-emptydir-data --force --timeout 5m
+end
+
+function k.kubelet
+    kubectl get --raw "/api/v1/nodes/$argv/proxy/configz" | jq
+end
+
 
 function cws_cert_info
     echo | openssl s_client -connect $argv:443 2>/dev/null | openssl x509 -noout -subject -enddate -issuer
@@ -115,6 +123,7 @@ alias gl="git log --pretty=format:'%C(yellow)%h %<(24)%C(red)%ad %<(18)%C(green)
 alias k.pf.alermanager 'kubectl -n kube-system port-forward svc/kube-prometheus-stack-alertmanager 9093:9093'
 alias k.pf.prometheus 'kubectl -n kube-system port-forward svc/kube-prometheus-stack-prometheus 9090:9090'
 alias k.pf.hubble-relay 'kubectl -n kube-system port-forward svc/hubble-relay 4245:80'
+alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 #alias z 'open -a /Applications/Zed.app -n'
 #alias cd 'z'
 

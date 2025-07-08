@@ -5,6 +5,8 @@ packages:
   darwin:
     brews:
     - 'git'
+    - 'neovim'
+    - tfsec
     casks:
     - 'vscodium'
     - 'vivaldi'
