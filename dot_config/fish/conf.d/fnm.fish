@@ -1,1 +1,11 @@
-fnm env --use-on-cd --shell fish | source
+if status is-interactive
+    fnm env --use-on-cd --shell fish | source
+end
+
+# fnm env --use-on-cd --shell fish | source
+#
+# # fnm
+# set FNM_PATH "/opt/homebrew/opt/fnm/bin"
+# if [ -d "$FNM_PATH" ]
+#   fnm env | source
+# end
