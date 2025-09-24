@@ -7,6 +7,7 @@ packages:
     - 'git'
     - 'neovim'
     - tfsec
+    - fnm
     casks:
     - 'vscodium'
     - 'vivaldi'
