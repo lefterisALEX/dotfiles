@@ -8,6 +8,8 @@ packages:
     - 'neovim'
     - tfsec
     - fnm
+    - uv
+    - skopeo
     casks:
     - 'vscodium'
     - 'vivaldi'
