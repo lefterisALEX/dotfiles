@@ -1,17 +1,34 @@
+# packages:
+#   apt:
+#     - build-essential
+#     - curl
+#   darwin:
+#     brews:
+#     - 'git'
+#     - 'neovim'
+#     - tfsec
+#     - fnm
+#     - uv
+#     - skopeo
+#     casks:
+#     - 'vscodium'
+#     - 'vivaldi'
 packages:
-  apt:
-    - build-essential
+  common:
+    # packages that exist in multiple ecosystems (pacman/brew/apt)
+    - git
+    - neovim
     - curl
-  darwin:
-    brews:
-    - 'git'
-    - 'neovim'
-    - tfsec
+
+  arch:
+    - base-devel
+    - ripgrep
+
+  debian:
+    - build-essential
+    - apt-transport-https
+
+  brew:
+    - skopeo
     - fnm
     - uv
-    - skopeo
-    casks:
-    - 'vscodium'
-    - 'vivaldi'
-
-
