@@ -1,12 +1,14 @@
 #!/bin/bash
 
-{{ if eq .chezmoi.osRelease.ID "arch" }}
+{{ if eq .chezmoi.osRelease.id "arch" }}
+# Arch Linux
 sudo pacman -Sy --noconfirm base-devel curl
 
-{{ else if or (eq .chezmoi.osRelease.ID "ubuntu") (eq .chezmoi.osRelease.ID "debian") }}
+{{ else if or (eq .chezmoi.osRelease.id "ubuntu") (eq .chezmoi.osRelease.id "debian") }}
+# Debian / Ubuntu
 sudo apt-get update
 sudo apt-get install -y build-essential curl
 
 {{ else }}
-echo "Unsupported Linux distro: {{ .chezmoi.osRelease.ID }}"
+echo "Unsupported Linux distro: {{ .chezmoi.osRelease.id }}"
 {{ end }}
