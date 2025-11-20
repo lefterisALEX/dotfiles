@@ -1,14 +1,26 @@
 #!/bin/bash
 
 {{ if eq .chezmoi.osRelease.id "arch" }}
-# Arch Linux
-sudo pacman -Sy --noconfirm base-devel curl
+# -------- Arch (pacman) --------
+sudo pacman -Sy --noconfirm \
+{{ range .packages.common -}}
+    {{ . }} \
+{{ end -}}
+{{ range .packages.arch -}}
+    {{ . }} \
+{{ end }}
 
-{{ else if or (eq .chezmoi.osRelease.id "ubuntu") (eq .chezmoi.osRelease.id "debian") }}
-# Debian / Ubuntu
+{{ else if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") }}
+# -------- Debian/Ubuntu (apt) --------
 sudo apt-get update
-sudo apt-get install -y build-essential curl
+sudo apt-get install -y \
+{{ range .packages.common -}}
+    {{ . }} \
+{{ end -}}
+{{ range .packages.debian -}}
+    {{ . }} \
+{{ end }}
 
 {{ else }}
-echo "Unsupported Linux distro: {{ .chezmoi.osRelease.id }}"
+echo "Unsupported Linux distribution: {{ .chezmoi.osRelease.id }}"
 {{ end }}
