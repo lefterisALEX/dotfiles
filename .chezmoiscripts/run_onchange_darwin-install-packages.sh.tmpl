@@ -1,12 +1,12 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-brew bundle  --file=/dev/stdin <<EOF
-{{ range .packages.darwin.brews -}}
-brew {{ . | quote }}
+brew install \
+{{ range .packages.common -}}
+    {{ . }} \
 {{ end -}}
-{{ range .packages.darwin.casks -}}
-cask {{ . | quote }}
-{{ end -}}
-EOF
+{{ range .packages.brew -}}
+    {{ . }} \
+{{ end }}
+
 {{ end -}}
