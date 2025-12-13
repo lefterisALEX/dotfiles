@@ -6,7 +6,7 @@
 {{-     $chassisType = "desktop" }}
 {{-   end }}
 {{- else if eq .chezmoi.os "linux" }}
-{{-   $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
+{{-   $chassisType = (output "sh" "-c" "if command -v hostnamectl >/dev/null 2>&1; then hostnamectl --json=short; else printf '%s' '{\"Chassis\":\"laptop\"}'; fi" | mustFromJson).Chassis }}
 {{- else if eq .chezmoi.os "windows" }}
 {{-   $chassisType = (output "powershell.exe" "-NoProfile" "-NonInteractive" "-Command" "if ((Get-CimInstance -Class Win32_Battery | Measure-Object).Count -gt 0) { Write-Output 'laptop' } else { Write-Output 'desktop' }") | trim }}
 {{- end }}
