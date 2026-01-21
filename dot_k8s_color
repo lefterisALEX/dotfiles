@@ -1,1 +1,9 @@
-GREP_COLOR='01;32' egrep --color=always 'Running|$' | GREP_COLOR='01;33' egrep --color=always 'ContainerCreating|$' | GREP_COLOR='01;33' egrep --color=always 'Terminating|$' | GREP_COLOR='01;31' egrep --color=always 'Error|$' | GREP_COLOR='01;31' egrep --color=always 'CrashLoopBackOff|$' | GREP_COLOR='01;31' egrep --color=always 'ImagePullBackOff|$' | GREP_COLOR='01;33' egrep --color=always 'Pending|$'
+GREP_COLORS='mt=01;32' grep -E --color=always 'Running|$' |
+GREP_COLORS='mt=01;33' grep -E --color=always 'ContainerCreating|$' |
+GREP_COLORS='mt=01;33' grep -E --color=always 'Terminating|$' |
+GREP_COLORS='mt=01;31' grep -E --color=always 'Error|$' |
+GREP_COLORS='mt=01;31' grep -E --color=always 'CrashLoopBackOff|$' |
+GREP_COLORS='mt=01;31' grep -E --color=always 'ImagePullBackOff|$' |
+GREP_COLORS='mt=01;33' grep -E --color=always 'Pending|$'
+
+
