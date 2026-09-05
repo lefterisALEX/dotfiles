@@ -114,6 +114,8 @@ function aws.ec2.asg
 end
 
 alias k='kubectl'
+alias pbcopy='xclip -selection clipboard'
+
 alias c='clear'
 alias kx='kubie ctx'
 alias kn='kubie ns'
@@ -124,6 +126,12 @@ alias k.pf.alermanager 'kubectl -n kube-system port-forward svc/kube-prometheus-
 alias k.pf.prometheus 'kubectl -n kube-system port-forward svc/kube-prometheus-stack-prometheus 9090:9090'
 alias k.pf.hubble-relay 'kubectl -n kube-system port-forward svc/hubble-relay 4245:80'
 alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+alias bt-airpods='bluetoothctl connect C4:14:11:48:74:D8'
+alias bt-airpods-off='bluetoothctl disconnect C4:14:11:48:74:D8'
+alias bt-airpods2='bluetoothctl connect 08:5D:53:DD:88:7B'
+alias bt-airpods2-off='bluetoothctl disconnect 08:5D:53:DD:88:7B'
+alias bt-mouse='bluetoothctl connect D3:99:4B:93:D4:13'
+alias sounds='pavucontrol'
 #alias z 'open -a /Applications/Zed.app -n'
 #alias cd 'z'
 
@@ -190,3 +198,15 @@ status is-interactive; and begin
 
 
 end
+export PATH="$HOME/.local/bin:$PATH"
+
+
+# pnpm
+set -gx PNPM_HOME "/home/lefteris/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# Scaleway CLI autocomplete initialization.
+eval (scw autocomplete script shell=fish)
