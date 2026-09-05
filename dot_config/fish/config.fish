@@ -25,6 +25,10 @@ set -gx PATH /opt/homebrew/bin /Users/lefteris/.nix-profile/bin $PATH
 set PAGER less
 set LESS -R
 
+if type -q keychain
+    keychain --eval --quiet  id_ed25519 | source
+end
+
 function awaketime -d "Display time since last waking."
     echo "Awake Since " \
         (pmset -g log | awk -e '/ Wake  /{print $2}' | tail -n 1)
